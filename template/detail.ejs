@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Detail</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <% articles.forEach(article => { %>
+        <img style="height: 569px;width: 651px" src="/images/<%= article.photo %>" alt="<%= article.title %> Photo">
+        <%})   %> 
+</div>
+<div class="col-6">
+  <% articles.forEach(article => { %>
+  <h1><%= article.title %></h1>
+        <p class="cont" style="font-size: x-large;margin-top: 54px;" ><%= article.content %></p>
+        <p class="pri" style="font-size: xxx-large;"><strong>Price:</strong> <%= article.prix %>$</p>
+        <p class="cat" style="font-size: xx-large;"><strong>Category:</strong> <%= article.categorie %></p>
+        <a href="/blog" class="btn btn-primary feet" style="margin-top: 52px;">Go Back to List</a>
+        <%})   %> 
+      </div>
+        
+    </div>
+  </div>
+</body>
+</html>

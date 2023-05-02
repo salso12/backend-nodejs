@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="row">
+    <div class="col-md-6 my-5">
+      <h1 style="margin-left: 660px;font-size: xx-large"> List of Artiles</h1>
+    </div>
+    <div class="col-md-6">
+      <a href="/articles/create" class="btn btn-primary" style="margin-left: 379px; margin-top: 53px">Add an article</a>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table align-middle">
+        <thead>
+          <tr class="head"><b>
+            <th scope="col">Id</th>
+            <th scope="col">title</th>
+            <th scope="col" class="mx-2">details</th></b>
+          </tr>
+        </thead>
+        <tbody>
+          <% articles.forEach(article => { %>
+          <tr>
+            
+            <th scope="row"><%= article.id %></th>
+            <td><%= article.title %></td>
+            
+            <td class="DETAIL">
+              <a href="/articles/detail/<%= article.id %>" class="btn btn-info mx-1 ">See Detail</a>
+              <a class="btn btn-warning mx-1 " href="/blog/edit/<%= article.id %>">Edit</a>
+              <a class="btn btn-danger mx-1" href="/blog/<%= article.id %>">Delete</a>
+             
+
+            </td>
+           
+          </tr>
+          <%})   %> 
+          <!-- <tr>
+            <th scope="row">2</th>
+            <td>Adipisicing</td>
+            <td>Elit</td>
+            <td>
+              <button type="button" class="btn btn-link btn-sm px-3" data-ripple-color="dark">
+                <i class="fas fa-times"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Hic</td>
+            <td>Fugiat</td>
+            <td>
+              <button type="button" class="btn btn-link btn-sm px-3" data-ripple-color="dark">
+                <i class="fas fa-times"></i>
+              </button>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+  
+</body>
+</html>

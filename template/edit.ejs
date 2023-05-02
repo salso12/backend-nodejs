@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="row">
+    <div class="col-md-12 my-5">
+      <h1 style="margin-left: 786px;font-size: xxx-large;">Create an article</h1>
+    </div>
+  </div>
+    <div class="container">
+      <form action="/blog/edit/<%=blogPost.id%>" method="POST">
+      <div class="form-group">
+        <fieldset>
+          <label style="font-size: xx-large" class="form-label mt-4" for="readOnlyInput">Title</label>
+          <input style="font-size: x-large;" class="form-control" id="readOnlyInput" type="text" placeholder="enter the title..." name="title" value="<%= blogPost.title %>">
+          <% if(error && error.path == "title") { %>
+            <div class="alert alert-danger">
+              <%= error.message %>
+            </div>
+          <% } %>
+        </fieldset>
+      </div>
+      <div class="form-group">
+        <fieldset>
+          <label style="font-size: xx-large" class="form-label mt-4" for="readOnlyInput">Content</label>
+          <input style="font-size: x-large;" class="form-control" id="readOnlyInput" type="text" placeholder="enter the title..." name="content" value="<%= blogPost.content %>">
+          <% if(error && error.path == "content") { %>
+            <div class="alert alert-danger">
+              <%= error.message %>
+            </div>
+          <% } %>
+        </fieldset>
+      </div>
+      <div class="form-group">
+        <fieldset>
+          <label style="font-size: xx-large" class="form-label mt-4" for="category">Category</label>
+          <select style="font-size: x-large;" class="form-select" name="categorie" id="category" required>
+            <% categories.forEach(categorie => { %>
+              <option value="<%= categorie.id %>" <%= categorie.id == blogPost.categorie ? 'selected' : '' %>><%= categorie.name %></option>
+            <% }) %>
+          </select>
+          <% if(error && error.path == "categorie") { %>
+            <div class="alert alert-danger">
+              <%= error.message %>
+            </div>
+          <% } %>
+        </fieldset>
+      </div>
+      
+      <div class="form-group">
+        <fieldset>
+          <label style="font-size: xx-large" class="form-label mt-4" for="readOnlyInput">Price</label>
+          <input style="font-size: x-large;" class="form-control" id="readOnlyInput" type="text" placeholder="enter the title..." name="prix" value="<%= blogPost.prix %>">
+          <% if(error && error.path == "prix") { %>
+            <div class="alert alert-danger">
+              <%= error.message %>
+            </div>
+          <% } %>
+        </fieldset>
+      </div>
+      <div class="form-group">
+        <fieldset>
+          <label style="font-size: xx-large" class="form-label mt-4" for="readOnlyInput">image</label>
+          <input style="font-size: x-large;" class="form-control" id="readOnlyInput" type="text" placeholder="enter the image url..." name="photo" value="<%= blogPost.photo %>">
+          <% if(error && error.path == "photo") { %>
+            <div class="alert alert-danger">
+              <%= error.message %>
+            </div>
+          <% } %>
+        </fieldset>
+      </div>
+      <div class="row">
+        <div class="col-12 my-4">
+          <button style="font-size: x-large;margin-left: 569px;" type="submit" class="btn btn-info">save</button>
+        </div>
+      </div>
+    </form>
+</div>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Create a blog post</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+<body>
+	<h1>Create a blog post</h1>
+	<form action="/blog" method="post">
+		<label for="title">Title:</label><br>
+		<input type="text" id="title" name="title"><br>
+
+		<label for="content">Content:</label><br>
+		<textarea id="content" name="content"></textarea><br>
+
+		<label for="category">Category:</label><br>
+		<select id="category" name="category">
+			<option value="1">cloths</option>
+			<option value="2">electronic</option>
+			<option value="3">food</option>
+		</select><br>
+
+		<input type="submit" value="Create post">
+	</form>
+</body>
+</html> -->
